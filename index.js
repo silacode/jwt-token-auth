@@ -35,7 +35,7 @@ db.on("connected", () => console.log("Connected to mongoDb atlas"));
 db.on("error", (err) => console.log("Failed to connect to mongoDb atlas", err));
 db.on("disconnected", () => console.log("MongoDB event disconnected"));
 process.on("SIGINT", () => {
-  connection.close(() => {
+  db.close(() => {
     console.log(
       "Mongoose connection is disconnected due to application termination"
     );
